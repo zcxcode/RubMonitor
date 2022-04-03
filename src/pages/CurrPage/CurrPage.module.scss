@@ -1,0 +1,12 @@
+.curr {
+  padding-top: 5px;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 5px;
+  padding: 0;
+  flex-wrap: wrap;
+}

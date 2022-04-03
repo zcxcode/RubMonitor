@@ -1,0 +1,99 @@
+:root {
+  --bg-color: #fff;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 325px;
+  padding: 15px;
+  overflow: visible;
+  font-family: "Roboto", serif;
+  font-size: 20px;
+  list-style: none;
+  will-change: transform;
+  background-color: var(--bg-color);
+
+  .tooltip {
+    position: absolute;
+    display: none;
+    top: -20%;
+    left: 50%;
+    margin: 0;
+    padding: 5px;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: gray;
+    border-radius: 5px;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 10px solid transparent;
+      border-top: 10px solid gray;
+    }
+  }
+  &:hover > .tooltip {
+    display: block;
+  }
+  &:focus-visible > .tooltip {
+    display: block;
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-style: dashed !important;
+  }
+  &:focus-visible {
+    outline: 3px solid;
+  }
+
+  p {
+    pointer-events: none;
+  }
+
+  p:not(:last-child) {
+    margin-right: 25px;
+  }
+
+  .history {
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    left: 0;
+    display: block !important;
+    padding: 5px;
+    transform: translateY(-100%);
+    font-size: 16px;
+    background-color: #fff;
+    pointer-events: none;
+    list-style: none;
+    border-radius: 5px;
+    animation-name: historyShow;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+  }
+
+  .current,
+  .previous,
+  .result {
+    font-size: 30px;
+  }
+}
+
+.error {
+  font-size: 32px;
+}
+
+@keyframes historyShow {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

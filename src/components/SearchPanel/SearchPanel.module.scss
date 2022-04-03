@@ -1,0 +1,24 @@
+.input {
+  align-self: end;
+  width: 300px;
+  margin-bottom: 30px;
+  padding: 5px;
+  font-size: 28px;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-bottom: 2px solid silver;
+  &::placeholder {
+    font-size: 24px;
+  }
+  @media (max-width: 400px) {
+    width: 220px;
+    &::placeholder {
+      font-size: 18px;
+    }
+  }
+}
+
+.desc {
+  color: #fff;
+}
