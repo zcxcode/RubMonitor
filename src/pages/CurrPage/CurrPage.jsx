@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { historyCurr } from "../../services/requestCurr";
+import { historyCurr } from "../../services/currency.request";
 import style from "./CurrPage.module.scss";
 import Spinner from "../../components/Spinner/Spinner";
 import Header from "../../components/Header";
