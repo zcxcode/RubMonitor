@@ -1,11 +1,17 @@
 import style from "./CurrItem.module.scss";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 function CurrItem({ currList }) {
   const [currItem, historyItem] = currList;
   if (currItem[1] === 111) {
-    return <p className={style.error} key={currItem[1]}>{currItem[0]}</p>
+    return (
+      <p className={style.error} key={currItem[1]}>
+        {currItem[0]}
+      </p>
+    );
   }
+  if (currItem.length === 0) return <p className={style.error}>Нет результатов</p>;
+  
   return currItem.map((i, index) => {
     const { Value: value, Previous: prev, Nominal: nominal } = i;
 
@@ -63,9 +69,9 @@ function CurrItem({ currList }) {
 CurrItem.propTypes = {
   currList: PropTypes.arrayOf((i) => {
     if (typeof i !== "object") {
-      return new Error("Incorrect props in CurrItem")
+      return new Error("Incorrect props in CurrItem");
     }
   })
-}
+};
 
 export default CurrItem;

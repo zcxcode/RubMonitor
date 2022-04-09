@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { historyCurr } from "../../services/currency.request";
+import { filterHalndler } from "../../services/filterData.helper";
 import style from "./CurrPage.module.scss";
 import Spinner from "../../components/Spinner/Spinner";
 import Header from "../../components/Header";
@@ -26,26 +27,25 @@ function CurrBlock() {
   }, []);
 
   useEffect(() => {
-    let filteredList = currencies.filter((i) => {
-      return i.CharCode.toLowerCase().indexOf(filterInput.toLowerCase()) > -1;
-    });
+    let filteredList = filterHalndler(currencies, filterInput);
     dispatch({ type: "FILTER_CURRENCIES", content: filteredList });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterInput]);
 
-  const onLoading =
-    currencies.length === 0 ? (
+  function loadCurrencies(data) {
+    return data.length === 0 ? (
       <Spinner />
     ) : (
       <CurrItem currList={filterInput.length > 0 ? [filterCurrencies, history] : [currencies, history]} />
     );
+  }
 
   return (
     <>
       <Header />
       <main>
         <section className={style.curr}>
-          <ul className={style.list}>{onLoading}</ul>
+          <ul className={style.list}>{loadCurrencies(currencies)}</ul>
         </section>
       </main>
     </>
