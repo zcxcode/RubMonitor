@@ -1,5 +1,5 @@
-import { createData, createMark } from "./localStorage.helper";
-import { createError } from "./errors.helper";
+import { createData, createMark } from "../helpers/localStorage.helper";
+import { createError } from "../handlers/errors.handler";
 
 export async function requestCurr() {
   try {

@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { historyCurr } from "../../services/currency.request";
-import { filterHalndler } from "../../services/filterData.helper";
+import { historyCurr } from "../../services/requests/currency.request";
+import { filterHandler } from "../../services/helpers/filterData.helper";
+import { addCurrencies, addHistory, filterCurrency } from "../../redux/currenciesReducer/currencies.actions";
 import style from "./CurrPage.module.scss";
 import Spinner from "../../components/Spinner/Spinner";
 import Header from "../../components/Header";
@@ -9,16 +10,16 @@ import CurrItem from "../../components/CurrItem";
 
 function CurrBlock() {
   const dispatch = useDispatch();
-  const currencies = useSelector((state) => state.currencies);
-  const history = useSelector((state) => state.history);
-  const filterCurrencies = useSelector((state) => state.filterCurrencies);
-  const filterInput = useSelector((state) => state.filterInput);
+  const currencies = useSelector((state) => state.currReducer.currencies);
+  const history = useSelector((state) => state.currReducer.history);
+  const filterCurrencies = useSelector((state) => state.currReducer.filterCurrencies);
+  const filterInput = useSelector((state) => state.currReducer.filterInput);
 
   async function refreshCurr() {
     const results = await historyCurr();
     const [result, resultHistory] = results;
-    dispatch({ type: "ADD_CURRENCIES", content: result });
-    dispatch({ type: "ADD_HISTORY", content: resultHistory });
+    dispatch(addCurrencies(result));
+    dispatch(addHistory(resultHistory));
   }
 
   useEffect(() => {
@@ -27,11 +28,11 @@ function CurrBlock() {
   }, []);
 
   useEffect(() => {
-    let filteredList = filterHalndler(currencies, filterInput);
-    dispatch({ type: "FILTER_CURRENCIES", content: filteredList });
+    let filteredList = filterHandler(currencies, filterInput);
+    dispatch(filterCurrency(filteredList));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterInput]);
-
+  // debugger;
   function loadCurrencies(data) {
     return data.length === 0 ? (
       <Spinner />

@@ -1,5 +1,5 @@
 import style from "./CurrItem.module.scss";
-import { convertCurrentPrice, result, toggleHistory } from "../../services/currencyItem.handler";
+import { convertCurrentPrice, result, toggleHistory } from "../../services/helpers/currencyItem.helper";
 import PropTypes from "prop-types";
 
 function CurrItem({ currList }) {

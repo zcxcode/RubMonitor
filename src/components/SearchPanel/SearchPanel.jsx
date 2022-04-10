@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { filterInput } from "../../redux/currenciesReducer/currencies.actions";
 import style from "./SearchPanel.module.scss";
 
 function SearchPanel(props) {
@@ -6,9 +7,9 @@ function SearchPanel(props) {
 
   const onInput = (e) => {
     if (e.target.value.length > 0) {
-      dispatch({type: "FILTER_INPUT", content: e.target.value})
+      dispatch(filterInput(e.target.value))
     } else {
-      dispatch({type: "FILTER_INPUT", content: ""})
+      dispatch(filterInput(""))
     }
   };
 
