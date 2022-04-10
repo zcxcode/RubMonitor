@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/RubMonitor/static/css/main.019b2e51.css",
-    "main.js": "/RubMonitor/static/js/main.84c2b68d.js",
+    "main.js": "/RubMonitor/static/js/main.2cde70e7.js",
     "index.html": "/RubMonitor/index.html",
     "main.019b2e51.css.map": "/RubMonitor/static/css/main.019b2e51.css.map",
-    "main.84c2b68d.js.map": "/RubMonitor/static/js/main.84c2b68d.js.map"
+    "main.2cde70e7.js.map": "/RubMonitor/static/js/main.2cde70e7.js.map"
   },
   "entrypoints": [
     "static/css/main.019b2e51.css",
-    "static/js/main.84c2b68d.js"
+    "static/js/main.2cde70e7.js"
   ]
 }
