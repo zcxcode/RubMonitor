@@ -10,10 +10,10 @@
   height: 325px;
   padding: 15px;
   overflow: visible;
-  font-family: "Roboto", serif;
+  font-family: 'Roboto', serif;
   font-size: 20px;
   list-style: none;
-  will-change: transform;
+  border-radius: 15px;
   background-color: var(--bg-color);
 
   .tooltip {
@@ -28,7 +28,7 @@
     background-color: gray;
     border-radius: 5px;
     &::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 100%;
       left: 50%;

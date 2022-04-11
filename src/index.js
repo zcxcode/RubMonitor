@@ -5,6 +5,8 @@ import { Provider } from "react-redux";
 import "./index.scss";
 import App from "./App";
 
+document.querySelector('.load').remove()
+
 ReactDOM.render(
   <Provider store={Redux.store}>
     <React.StrictMode>

@@ -1,6 +1,17 @@
 import style from "./CurrItem.module.scss";
-import { convertCurrentPrice, result, toggleHistory } from "../../services/helpers/currencyItem.helper";
 import PropTypes from "prop-types";
+
+function convertCurrentPrice(value, nom, toFixed) {
+  return (value / nom).toFixed(toFixed);
+}
+
+function result(val, nom, prev, toFixed) {
+  return (((val / nom - prev / nom) / (prev / nom)) * 100).toFixed(toFixed);
+}
+
+function toggleHistory(e, style) {
+  e.target.querySelector("ul").classList.toggle(style.history);
+}
 
 function CurrItem({ currList }) {
   const [currItem, historyItem] = currList;

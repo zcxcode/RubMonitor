@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { historyCurr } from "../../services/requests/currency.request";
-import { filterHandler } from "../../services/helpers/filterData.helper";
+import { filterHandler } from "../../services/handlers/filterData.handler";
 import { addCurrencies, addHistory, filterCurrency } from "../../redux/currenciesReducer/currencies.actions";
 import style from "./CurrPage.module.scss";
 import Spinner from "../../components/Spinner/Spinner";

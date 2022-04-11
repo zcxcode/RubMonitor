@@ -1,0 +1,11 @@
+#root:empty + .load {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 40px;
+}
+
+#root + .load {
+  display: none;
+}

@@ -1,3 +1,5 @@
+https://zcxcode.github.io/RubMonitor
+
 # Учебный проект
 
 Мониторинг курса валюты RUB
