@@ -1,5 +1,7 @@
 .curr {
+  min-height: 100%;
   padding-top: 5px;
+  background-color: #2F4550;
 }
 
 .list {
@@ -7,6 +9,7 @@
   justify-content: center;
   flex-direction: row;
   gap: 5px;
-  padding: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
   flex-wrap: wrap;
 }
