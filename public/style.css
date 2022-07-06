@@ -1,3 +1,8 @@
+body {
+  min-height: 100vh;
+  background-color: #2f4550;
+}
+
 #root:empty + .load {
   display: flex;
   justify-content: center;
